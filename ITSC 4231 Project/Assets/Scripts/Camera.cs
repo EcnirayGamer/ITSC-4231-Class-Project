@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    //Varaiables
+    //Variables
     public Transform player;
+
     public float smooth = 0.3f;
     public float height;
 
@@ -14,18 +13,12 @@ public class Camera : MonoBehaviour
     //Methods
     private void Update()
     {
-        Vector3 pos = new Vector3();
-        pos.x = player.position.x;
-        pos.z = player.position.z - 7f;
-        pos.y = player.position.y + height;
-
+        Vector3 pos = new Vector3
+        {
+            x = player.position.x,
+            z = player.position.z - 7f,
+            y = player.position.y + height
+        };
         transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, smooth);
-        
-
-
-
-
     }
-
-
 }
